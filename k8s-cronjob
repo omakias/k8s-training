@@ -1,1 +1,3 @@
 kubectl create cronjob my-cronjob --image=alpine:latest --schedule='0/5 * * * *' -- echo "Hello World"
+kubectl describe cj cronjobname
+kubectl edit cj <Edit History of replicas>
