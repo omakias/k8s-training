@@ -1,12 +1,14 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nginx-deployment-test
+  name: nginx-deployment
+  labels:
+    app: nginx
 spec:
+  replicas: 3
   selector:
     matchLabels:
       app: nginx
-  replicas: 3
   template:
     metadata:
       labels:
@@ -14,6 +16,6 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: nginx:mainline-alpine
+        image: nginx
         ports:
         - containerPort: 80
