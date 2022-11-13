@@ -2,3 +2,7 @@ kubectl create cronjob my-cronjob --image=alpine:latest --schedule='0/5 * * * *'
 kubectl get cj,pod,job  #cronjob  #pod  #job
 kubectl describe cj cronjobname
 kubectl edit cj <Edit History of replicas>
+
+
+kubectl get ds -A
+kubectl edit ds #deamonset name
