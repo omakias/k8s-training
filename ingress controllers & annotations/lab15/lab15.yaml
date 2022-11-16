@@ -16,7 +16,7 @@ spec:
               number: 80
         path: /
         pathType: Prefix
-        - host: moose.54.75.191.215.nip.io
+   - host: moose.54.75.191.215.nip.io
     http:
       paths:
       - backend:
