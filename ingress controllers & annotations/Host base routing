@@ -1,0 +1,14 @@
+Let’s create our first basic path based routing with basic auth
+First install Apache htpasswd to create a user/pass auth file and load it into a secret
+sudo apt-get update
+sudo apt-get install apache2-utils -y
+
+htpasswd -c auth basic
+New password: 098123
+Re-type new password:
+Adding password for user basic
+kubectl create secret generic basic-auth --from-file=auth
+secret "basic-auth" created
+
+Verify: kubectl get secret basic-auth -o yaml / kubectl describe secret basic-auth
+output our object: kubectl get secret <SECRET_NAME> -o jsonpath="{.data.<DATA>}" | base64 --decode
