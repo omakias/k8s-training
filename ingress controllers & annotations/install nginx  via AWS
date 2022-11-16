@@ -1,0 +1,13 @@
+install nginx operator on AWS using ALB
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.0.0/deploy/static/provider/aws/deploy.yaml
+Verify installation:
+kubectl get svc -n ingress-nginx ingress-nginx-controller
+ (check that the LB is available)
+kubectl get pods -n ingress-nginx -l app.kubernetes.io/name=ingress-nginx --watch
+
+Example how its looks :
+NAME                                        READY   STATUS      RESTARTS   AGE
+ingress-nginx-admission-create-r2642        0/1     Completed   0          3m42s
+ingress-nginx-admission-patch-9zzl7         0/1     Completed   1          3m42s
+ingress-nginx-controller-57cb5bf694-2qks4   1/1     Running     0          3m42s
+
