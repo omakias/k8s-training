@@ -2,3 +2,22 @@ curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/master/scr
 chmod 700 get_helm.sh
 ./get_helm.sh
 helm version (to check and verify)
+
+Running an example CHART
+
+Search Helm repo for mysql 
+(STUDENTS ONLY RUN THE FOLLOWING)
+$ helm search hub  mysql 
+$ helm repo add incubator https://charts.helm.sh/incubator
+$ helm repo add stable https://charts.helm.sh/stable
+$ helm repo add bitnami i https://charts.bitnami.com/bitnami
+$ helm repo update
+$ helm search repo stable
+(END)
+
+
+View online Helm repo
+https://hub.kubeapps.com/
+
+
+*** Whenever we install a chart, a new release is created. So one chart can be installed multiple times into the same cluster. And each can be independently managed and upgraded
