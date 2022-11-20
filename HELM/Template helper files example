@@ -21,3 +21,6 @@ metadata:
 data:
   dbname: {{ .Values.dbname }}
   dbtable: {{ .Values.dbtable }}
+
+
+** NOTES: the nindent will make sure the generated content will keep the right indent 
