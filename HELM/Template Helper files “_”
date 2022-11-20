@@ -1,0 +1,12 @@
+Template helper files: Most files in templates/ are treated as if they contain Kubernetes manifests with one exception - NOTES.txt [tbd]
+But files whose name begins with an underscore (_) are assumed to not have a manifest inside. 
+These files are not rendered to Kubernetes object definitions, but are available everywhere within other chart templates for use.
+
+These files are used to store partials and helpers. In fact, when we first created mychart, we saw a file called _helpers.tpl. That file is the default location for template partials
+
+Inside those files we can use an action called define. With it we can create a named template INSIDE of a template file and than pull inject it and it’s content to a template file we’ve built.
+Its syntax goes like this
+
+{{ define "MY.NAME" }}
+  # body of template here
+{{ end }}
