@@ -10,7 +10,7 @@ Search Helm repo for mysql
 $ helm search hub  mysql 
 $ helm repo add incubator https://charts.helm.sh/incubator
 $ helm repo add stable https://charts.helm.sh/stable
-$ helm repo add bitnami i https://charts.bitnami.com/bitnami
+$ helm repo add bitnami https://charts.bitnami.com/bitnami
 $ helm repo update
 $ helm search repo stable
 (END)
