@@ -1,0 +1,9 @@
+Hooks: 
+add post - pre install tasks to your installation:
+https://github.com/elevy99927/k8s/tree/main/helm/09-hooks/templates
+
+Capabilities:
+Check for k8s capabilities, api versions etc:
+https://github.com/elevy99927/k8s/tree/main/helm/10-Capabilities/templates
+_ingress-helper.yaml - check for k8s capabilities
+NOTES.txt - disclaimer message after installation
