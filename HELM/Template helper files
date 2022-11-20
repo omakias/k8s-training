@@ -1,0 +1,23 @@
+vim spring-music/templates/_helpers.tpl
+{{/* This is a comment - Generate basic labels */}}
+{{- define "spring.labels" }}
+generator: helm
+date: {{ now | htmlDate }}
+name: {{ .Release.Name }}
+{{- end }}
+
+
+
+Edit our ConfigMap file and implement the labels inside the metadata and dry run it
+
+
+vim spring-music/templates/configmaps.yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Release.Name }}-configmap
+  labels:
+{{- include "spring.labels" . | nindent 3}}
+data:
+  dbname: {{ .Values.dbname }}
+  dbtable: {{ .Values.dbtable }}
