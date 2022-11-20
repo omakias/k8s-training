@@ -1,1 +1,35 @@
 http://masterminds.github.io/sprig/    ---  all functions
+
+################ Examples ##################
+
+Values.yaml
+
+database_prod:
+  dbname: "db_mysql"
+  dbtable: "music"
+database_test:
+  dbname: "db_mysql"
+  dbtable: "music"
+pod:
+  image: "yanivomc/spring-music"
+  tag: "latest"
+food: 
+  drink: beer
+  eat: Peanut Butter and Jelly sandwich 
+  
+  
+  ---------------------------------------------------------------------
+  
+  Configmap.yaml
+  
+  apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Release.Name }}-cm
+data:
+  dbname: {{ .Values.database_prod.dbname | upper | quote}}
+  dbtable: {{ .Values.database_prod.dbtable }}
+  k8s: {{ .Capabilities.KubeVersion }}
+
+  eat: {{ .Values.food.eat | upper |  trunc 13 |quote }}         #Change the latters from lower-case to Upper-case           
+  drink: {{ .Values.food.drink | upper}}                         
