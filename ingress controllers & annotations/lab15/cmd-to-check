@@ -1,0 +1,1 @@
+for i in {1..100} ; do curl http://bear.54.75.191.215.nip.io ; done |grep img | sort |uniq -c
