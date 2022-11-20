@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: "{{ .Chart.Name }}-{{ .Chart.Version }}"
+  {{- include "spring.labels" .  }}
+spec:
+  replicas: {{ .Values.pods.replica }}
+  selector:
+   {{- include "spring.labels" . | nindent 2 }}
+  template:
+    metadata:
+      {{- include "spring.labels" . | nindent 4 }}
+    spec:
+      containers:
+        - name: {{ .Chart.Name }}
+          image: "{{ .Values.pods.image }}:{{ .Values.pods.tag }}"
+          imagePullPolicy: IfNotPresent
+          ports:
+            - name: http
+              containerPort: 8080
+              protocol: TCP
