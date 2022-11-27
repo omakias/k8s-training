@@ -1,15 +1,12 @@
-kind: Pod
+kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
- name: nginx-pod
+ name: jb-claim
+ annotations:
+   volume.beta.kubernetes.io/storage-class: "slow-io"
 spec:
- containers:
-    - name: jb-nginx
-      image: nginx
-      volumeMounts:
-      - mountPath: "/var/www/html"
-        name: pod-volume-html
- volumes:
- - name: pod-volume-html
-   persistentVolumeClaim:
-    claimName: jb-claim
+ accessModes:
+   - ReadWriteOnce
+ resources:
+   requests:
+     storage: 4Gi
