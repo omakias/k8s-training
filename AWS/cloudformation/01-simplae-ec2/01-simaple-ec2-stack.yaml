@@ -1,0 +1,10 @@
+Resources:
+  MyInstance:
+    Type: AWS::EC2::Instance
+    Properties:
+      AvailabilityZone: us-west-1a
+      ImageId: ami-0a1a70369f0fce06a
+      InstanceType: t2.micro
+      Tags:
+      - Key: Name
+        Value: "osher-ecs-01"
