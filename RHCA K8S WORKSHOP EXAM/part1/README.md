@@ -10,4 +10,6 @@ kubectl create service clusterip messaging-service --tcp=6379:6379
 
 kubectl label service  messaging-service tier=msg
 
+kubectl create deployment hr-web-app --image=kodekloud/webapp-color --replicas=2
+
  
