@@ -8,6 +8,6 @@ kubectl get nodes -ojson
 
 kubectl create service clusterip messaging-service --tcp=6379:6379 
 
-kubectl label service  messaging-service app2=messaging/"tier=msg"
+kubectl label service  messaging-service tier=msg
 
  
