@@ -1,7 +1,12 @@
-kubectl create deployment nginx-pod-osher --image=nginx:alpine --port 80
+kubectl run nginx-pod-osher --image=nginx:alpine
 
-kubectl create deployment messaging --image=redis:alpine --port 80 -l tier=msg
+kubectl run messaging --image=redis:alpine --labels="tier=msg"
 
 kubectl create namespace apx-x998-osher
 
 kubectl get nodes -ojson 
+
+kubectl create service clusterip messaging-service --tcp=6379:6379 
+kubectl label service  messaging-service app2=messaging/"tier=msg"
+
+ 
