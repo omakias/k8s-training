@@ -1,0 +1,10 @@
+kind: Deployment
+metadata:
+  name: hr-web-aap
+spec:
+  replicas: 2
+  containers:
+  - name: hr-web-app
+    image: kodekloud/webapp-color
+    ports:
+    - containerPort: 8080
